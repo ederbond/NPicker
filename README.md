@@ -7,7 +7,7 @@ This is a .NET MAUI collection of picker controls that allows nullable values.
 
 ## Get Started
 
-1) Install it from nuget.org [](https://www.nuget.org/packages/NPicker)
+1) Install it from nuget.org [NPicker](https://www.nuget.org/packages/NPicker)
 
 
 2) Add the following namespace to your MauiProgram.cs:  
