@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NPicker.Samples.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:NPicker="clr-namespace:NPicker;assembly=NPicker">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <NPicker:DatePicker x:Name="_picker" Format="dd/MM/yyyy"/>
+
+            <Button x:Name="CounterBtn"
+                    Clicked="OnCounterClicked"
+                    HorizontalOptions="Fill"
+                    Text="Set Null" />
+
+            <Button Clicked="OnShowCurrentValue"
+                    HorizontalOptions="Fill"
+                    Text="Show Current Value" />
+            
+            <Label x:Name="LabelCurrentValue"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
