@@ -31,7 +31,9 @@ public static class MauiProgram
 ```
 
 Add the followin xmlns to the XAML pages where you wanna use it
-``xmlns:NPicker="clr-namespace:NPicker;assembly=NPicker"``
+```
+xmlns:NPicker="clr-namespace:NPicker;assembly=NPicker"
+```
 
 Then add a reference to <NPicker:DatePicker/> to your view and use it just like you've been using before. With the difference that, now you can set null to it's `Date` property.
 
