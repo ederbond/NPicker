@@ -1,4 +1,6 @@
-﻿namespace NPicker;
+﻿using Microsoft.Maui;
+
+namespace NPicker;
 
 public interface IDatePicker : IView, ITextStyle
 {
