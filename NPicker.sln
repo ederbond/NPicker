@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPicker", "NPicker\NPicker.csproj", "{6F4E5270-88DE-420E-8BC1-AAA6BF7300D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPicker.Samples", "NPicker.Samples\NPicker.Samples.csproj", "{9730F9EC-030F-49F1-9A01-2A4B8C841192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPicker.Samples", "NPicker.Samples\NPicker.Samples.csproj", "{9730F9EC-030F-49F1-9A01-2A4B8C841192}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

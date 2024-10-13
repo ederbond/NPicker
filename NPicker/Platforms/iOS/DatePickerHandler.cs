@@ -25,9 +25,9 @@ public partial class DatePickerHandler : Microsoft.Maui.Handlers.ViewHandler<IDa
         if (DatePickerDialog is UIDatePicker picker)
         {
             var date = VirtualView?.Date;
-            if (date is DateTime dt)
+            if (date != null)
             {
-                picker.Date = dt.ToNSDate();
+                picker.Date = date.Value.ToDateTime(new TimeOnly()).ToNSDate();
             }
         }
 
@@ -111,7 +111,7 @@ public partial class DatePickerHandler : Microsoft.Maui.Handlers.ViewHandler<IDa
         if (VirtualView == null || DatePickerDialog == null)
             return;
 
-        VirtualView.Date = DatePickerDialog.Date.ToDateTime().Date;
+        VirtualView.Date = DateOnly.FromDateTime(DatePickerDialog.Date.ToDateTime());
     }
 
     class DatePickerDelegate : NPicker.Platforms.iOS.MauiDatePickerDelegate

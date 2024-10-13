@@ -23,9 +23,9 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, UIDatePicker>
         _proxy.Connect(this, VirtualView, platformView);
 
         var date = VirtualView?.Date;
-        if (date is DateTime dt)
+        if (date != null)
         {
-            platformView.Date = dt.ToNSDate();
+            platformView.Date = date.Value.ToDateTime(new TimeOnly()).ToNSDate();
         }
 
         base.ConnectHandler(platformView);
@@ -63,7 +63,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, UIDatePicker>
         if (VirtualView == null)
             return;
 
-        VirtualView.Date = PlatformView.Date.ToDateTime().Date;
+        VirtualView.Date = DateOnly.FromDateTime(PlatformView.Date.ToDateTime());
     }
 
     class UIDatePickerProxy

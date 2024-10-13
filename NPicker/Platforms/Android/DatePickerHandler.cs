@@ -81,7 +81,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 			{
 				if (VirtualView != null)
 				{
-					VirtualView.Date = e.Date;
+					VirtualView.Date = DateOnly.FromDateTime(e.Date);
 				}
 			}, year, month, day);
 

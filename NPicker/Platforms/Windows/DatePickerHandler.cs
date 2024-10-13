@@ -50,6 +50,6 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, CalendarDatePi
             return;
         }
 
-        VirtualView.Date = args.NewDate.Value.Date;
+        VirtualView.Date = DateOnly.FromDateTime(args.NewDate.Value.Date);
     }
 }

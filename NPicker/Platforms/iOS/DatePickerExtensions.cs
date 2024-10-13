@@ -14,8 +14,8 @@ public static class DatePickerExtensions
 
     public static void UpdateDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker, UIDatePicker? picker)
     {
-        if (picker != null && datePicker.Date != null && picker.Date.ToDateTime().Date != datePicker.Date.Value.Date)
-            picker.SetDate(datePicker.Date.Value.ToNSDate(), false);
+        if (picker != null && datePicker.Date != null && DateOnly.FromDateTime(picker.Date.ToDateTime()) != datePicker.Date.Value)
+            picker.SetDate(datePicker.Date.Value.ToDateTime(new TimeOnly()).ToNSDate(), false);
 
         string format = datePicker.Format ?? string.Empty;
 
@@ -65,7 +65,7 @@ public static class DatePickerExtensions
     {
         if (platformDatePicker != null && datePicker.MinimumDate != null)
         {
-            platformDatePicker.MinimumDate = datePicker.MinimumDate.Value.ToNSDate();
+            platformDatePicker.MinimumDate = datePicker.MinimumDate.Value.ToDateTime(new TimeOnly()).ToNSDate();
         }
     }
 
@@ -78,7 +78,7 @@ public static class DatePickerExtensions
     {
         if (platformDatePicker != null && datePicker.MaximumDate != null)
         {
-            platformDatePicker.MaximumDate = datePicker.MaximumDate.Value.ToNSDate();
+            platformDatePicker.MaximumDate = datePicker.MaximumDate.Value.ToDateTime(new TimeOnly()).ToNSDate();
         }
     }
 }

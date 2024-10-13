@@ -3,7 +3,8 @@ This is a .NET MAUI collection of picker controls that allows nullable values.
 - It supports Windows, Android, iOS and MacOS
 - Based on the source code of .NET MAUI original source code so it renders directly to native platforms the same way as the built-in controls found on .NET MAUI, but better cause it supports nullable values.
 
-
+## Release Notes
+Version 2.0 intruduced a breaking change: The `Date`'s bindable property is now of type `DateOnly?` rather then `DateTime?` so please, make sure to change your VM's property to `DateOnly?`.
 
 ## Get Started
 
@@ -33,6 +34,7 @@ Add the followin xmlns to the XAML pages where you wanna use it
 ``xmlns:NPicker="clr-namespace:NPicker;assembly=NPicker"``
 
 Then add a reference to <NPicker:DatePicker/> to your view and use it just like you've been using before. With the difference that, now you can set null to it's `Date` property.
+
 ```xmls
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage x:Class="NPicker.Samples.MainPage"

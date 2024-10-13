@@ -23,7 +23,7 @@ public static class DatePickerExtensions
     {
         if (datePickerDialog != null && datePicker.MinimumDate != null)
         {
-            datePickerDialog.DatePicker.MinDate = (long)datePicker.MinimumDate.Value.ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
+            datePickerDialog.DatePicker.MinDate = (long)datePicker.MinimumDate.Value.ToDateTime(new TimeOnly()).ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
         }
     }
 
@@ -36,7 +36,7 @@ public static class DatePickerExtensions
     {
         if (datePickerDialog != null && datePicker.MaximumDate != null)
         {
-            datePickerDialog.DatePicker.MaxDate = (long)datePicker.MaximumDate.Value.ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
+            datePickerDialog.DatePicker.MaxDate = (long)datePicker.MaximumDate.Value.ToDateTime(new TimeOnly()).ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
         }
     }
 

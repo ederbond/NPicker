@@ -1,3 +1,3 @@
 ﻿namespace NPicker;
 
-public record DateChangedEventArguments(DateTime? OldDate, DateTime? NewDate);
+public record DateChangedEventArguments(DateOnly? OldDate, DateOnly? NewDate);
