@@ -1,5 +1,5 @@
 # NPicker
-This is a .NET MAUI collection of picker controls that allows nullable values.
+This is a collection of native picker controls for .NET MAUI that allows nullable values.
 - It supports Windows, Android, iOS and MacOS
 - Based on the source code of .NET MAUI original source code so it renders directly to native platforms the same way as the built-in controls found on .NET MAUI, but better cause it supports nullable values.
 
@@ -8,7 +8,7 @@ Version 2.0 intruduced a breaking change: The `Date`'s bindable property is now 
 
 ## Get Started
 
-1) Install it from nuget.org [NPicker](https://www.nuget.org/packages/NPicker)
+1) Install it from [![NuGet Version](https://img.shields.io/nuget/v/NPicker)](https://www.nuget.org/packages/NPicker)
 
 
 2) Add the following namespace to your MauiProgram.cs:  
