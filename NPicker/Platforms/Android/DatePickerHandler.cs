@@ -21,7 +21,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 			if (VirtualView == null)
 				return mauiDatePicker;
 
-			var date = VirtualView?.Date;
+			var date = VirtualView?.Value;
 
 			if (date == null)
 			{
@@ -81,7 +81,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 			{
 				if (VirtualView != null)
 				{
-					VirtualView.Date = DateOnly.FromDateTime(e.Date);
+					VirtualView.Value = DateOnly.FromDateTime(e.Date);
 				}
 			}, year, month, day);
 
@@ -93,21 +93,21 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 			handler.PlatformView?.UpdateFormat(datePicker);
 		}
 
-		public static partial void MapDate(IDatePickerHandler handler, IDatePicker datePicker)
+		public static partial void MapValue(IDatePickerHandler handler, IDatePicker datePicker)
 		{
-			handler.PlatformView?.UpdateDate(datePicker);
+			handler.PlatformView?.UpdateValue(datePicker);
 		}
 
-		public static partial void MapMinimumDate(IDatePickerHandler handler, IDatePicker datePicker)
+		public static partial void MapMinimumValue(IDatePickerHandler handler, IDatePicker datePicker)
 		{
 			if (handler is DatePickerHandler platformHandler)
-				handler.PlatformView?.UpdateMinimumDate(datePicker, platformHandler._dialog);
+				handler.PlatformView?.UpdateMinimumValue(datePicker, platformHandler._dialog);
 		}
 
-		public static partial void MapMaximumDate(IDatePickerHandler handler, IDatePicker datePicker)
+		public static partial void MapMaximumValue(IDatePickerHandler handler, IDatePicker datePicker)
 		{
 			if (handler is DatePickerHandler platformHandler)
-				handler.PlatformView?.UpdateMaximumDate(datePicker, platformHandler._dialog);
+				handler.PlatformView?.UpdateMaximumValue(datePicker, platformHandler._dialog);
 		}
 
 		void ShowPickerDialog()
@@ -118,7 +118,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 			if (_dialog != null && _dialog.IsShowing)
 				return;
 
-			var date = VirtualView.Date;
+			var date = VirtualView.Value;
 
 			if (date == null)
 				ShowPickerDialog(DateTime.Today.Year, DateTime.Today.Month - 1, DateTime.Today.Day);

@@ -22,7 +22,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, UIDatePicker>
     {
         _proxy.Connect(this, VirtualView, platformView);
 
-        var date = VirtualView?.Date;
+        var date = VirtualView?.Value;
         if (date != null)
         {
             platformView.Date = date.Value.ToDateTime(new TimeOnly()).ToNSDate();
@@ -43,27 +43,27 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, UIDatePicker>
         handler.PlatformView?.UpdateFormat(datePicker);
     }
 
-    public static partial void MapDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
         handler.PlatformView?.UpdateDate(datePicker);
     }
 
-    public static partial void MapMinimumDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapMinimumValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
         handler.PlatformView?.UpdateMinimumDate(datePicker);
     }
 
-    public static partial void MapMaximumDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapMaximumValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
         handler.PlatformView?.UpdateMaximumDate(datePicker);
     }
 
-    void SetVirtualViewDate()
+    void SetVirtualViewValue()
     {
         if (VirtualView == null)
             return;
 
-        VirtualView.Date = DateOnly.FromDateTime(PlatformView.Date.ToDateTime());
+        VirtualView.Value = DateOnly.FromDateTime(PlatformView.Date.ToDateTime());
     }
 
     class UIDatePickerProxy
@@ -93,7 +93,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, UIDatePicker>
         void OnValueChanged(object? sender, EventArgs? e)
         {
             if (_handler is not null && _handler.TryGetTarget(out var handler) && handler.UpdateImmediately)
-                handler.SetVirtualViewDate();
+                handler.SetVirtualViewValue();
 
             if (VirtualView is IDatePicker virtualView)
                 virtualView.IsFocused = true;

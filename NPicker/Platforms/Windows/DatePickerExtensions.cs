@@ -5,10 +5,10 @@ namespace NPicker.Platforms.Windows;
 
 public static class DatePickerExtensions
 {
-    public static void UpdateDate(this CalendarDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateValue(this CalendarDatePicker platformDatePicker, IDatePicker datePicker)
     {
-        var date = datePicker.Date;
-        platformDatePicker.UpdateDate(date);
+        var date = datePicker.Value;
+        platformDatePicker.UpdateValue(date);
 
         var format = datePicker.Format;
         var dateFormat = format.ToDateFormat();
@@ -19,18 +19,18 @@ public static class DatePickerExtensions
         platformDatePicker.UpdateTextColor(datePicker);
     }
 
-    public static void UpdateDate(this CalendarDatePicker platformDatePicker, DateOnly? dateTime)
+    public static void UpdateValue(this CalendarDatePicker platformDatePicker, DateOnly? value)
     {
-        platformDatePicker.Date = dateTime == null ? null : dateTime.Value.ToDateTime(new TimeOnly());
+        platformDatePicker.Date = value == null ? null : value.Value.ToDateTime(new TimeOnly());
     }
 
-    public static void UpdateMinimumDate(this CalendarDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateMinimumValue(this CalendarDatePicker platformDatePicker, IDatePicker datePicker)
     {
-        platformDatePicker.MinDate = datePicker.MinimumDate == null ? DateTimeOffset.MinValue : datePicker.MinimumDate.Value.ToDateTime(new TimeOnly(0));
+        platformDatePicker.MinDate = datePicker.MinimumValue == null ? DateTimeOffset.MinValue : datePicker.MinimumValue.Value.ToDateTime(new TimeOnly(0));
     }
 
-    public static void UpdateMaximumDate(this CalendarDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateMaximumValue(this CalendarDatePicker platformDatePicker, IDatePicker datePicker)
     {
-        platformDatePicker.MaxDate = datePicker.MaximumDate == null ? DateTimeOffset.MaxValue : datePicker.MaximumDate.Value.ToDateTime(new TimeOnly(0));
+        platformDatePicker.MaxDate = datePicker.MaximumValue == null ? DateTimeOffset.MaxValue : datePicker.MaximumValue.Value.ToDateTime(new TimeOnly(0));
     }
 }

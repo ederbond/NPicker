@@ -20,7 +20,7 @@
 
             <NPicker:DatePicker x:Name="_picker"
                                 HorizontalOptions="Center"
-                                Date="{Binding SelectedDate.Value}"
+                                Value="{Binding SelectedDate.Value}"
                                 Format="MM/dd/yyyy"
                                 MinimumWidthRequest="110" />
 

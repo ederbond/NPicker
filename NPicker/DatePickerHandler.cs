@@ -21,10 +21,10 @@ public partial class DatePickerHandler : IDatePickerHandler
 {
     public static IPropertyMapper<IDatePicker, IDatePickerHandler> Mapper = new PropertyMapper<IDatePicker, IDatePickerHandler>(Microsoft.Maui.Handlers.ViewHandler.ViewMapper)
     {
-        [nameof(IDatePicker.Date)] = MapDate,
         [nameof(IDatePicker.Format)] = MapFormat,
-        [nameof(IDatePicker.MaximumDate)] = MapMaximumDate,
-        [nameof(IDatePicker.MinimumDate)] = MapMinimumDate,
+        [nameof(IDatePicker.Value)] = MapValue,
+        [nameof(IDatePicker.MaximumValue)] = MapMaximumValue,
+        [nameof(IDatePicker.MinimumValue)] = MapMinimumValue,
     };
 
     public static CommandMapper<IPicker, IDatePickerHandler> CommandMapper = new(ViewCommandMapper)
@@ -57,23 +57,23 @@ public partial class DatePickerHandler : IDatePickerHandler
     public static partial void MapFormat(IDatePickerHandler handler, IDatePicker datePicker);
 
     /// <summary>
-    /// Maps the abstract <see cref="IDatePicker.Date"/> property to the platform-specific implementations.
+    /// Maps the abstract <see cref="IDatePicker.Value"/> property to the platform-specific implementations.
     /// </summary>
     /// <param name="handler">The associated handler.</param>
     /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
-    public static partial void MapDate(IDatePickerHandler handler, IDatePicker datePicker);
+    public static partial void MapValue(IDatePickerHandler handler, IDatePicker datePicker);
 
     /// <summary>
-    /// Maps the abstract <see cref="IDatePicker.MinimumDate"/> property to the platform-specific implementations.
+    /// Maps the abstract <see cref="IDatePicker.MinimumValue"/> property to the platform-specific implementations.
     /// </summary>
     /// <param name="handler">The associated handler.</param>
     /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
-    public static partial void MapMinimumDate(IDatePickerHandler handler, IDatePicker datePicker);
+    public static partial void MapMinimumValue(IDatePickerHandler handler, IDatePicker datePicker);
 
     /// <summary>
-    /// Maps the abstract <see cref="IDatePicker.MaximumDate"/> property to the platform-specific implementations.
+    /// Maps the abstract <see cref="IDatePicker.MaximumValue"/> property to the platform-specific implementations.
     /// </summary>
     /// <param name="handler">The associated handler.</param>
     /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
-    public static partial void MapMaximumDate(IDatePickerHandler handler, IDatePicker datePicker);
+    public static partial void MapMaximumValue(IDatePickerHandler handler, IDatePicker datePicker);
 }
