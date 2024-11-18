@@ -39,14 +39,14 @@ public static class DatePickerExtensions
 
 		public static void UpdateDate(this UIDatePicker picker, IDatePicker datePicker)
 		{
-			if (picker != null && datePicker.Date != null && DateOnly.FromDateTime(picker.Date.ToDateTime()) != datePicker.Date.Value)
-				picker.SetDate(datePicker.Date.Value.ToDateTime(new TimeOnly()).ToNSDate(), false);
+			if (picker != null && datePicker.Value != null && DateOnly.FromDateTime(picker.Date.ToDateTime()) != datePicker.Value.Value)
+				picker.SetDate(datePicker.Value.Value.ToDateTime(new TimeOnly()).ToNSDate(), false);
 		}
 
 		public static void UpdateDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker, UIDatePicker? picker)
 		{
-			if (picker != null && datePicker.Date != null  && DateOnly.FromDateTime(picker.Date.ToDateTime()) != datePicker.Date.Value)
-				picker.SetDate(datePicker.Date.Value.ToDateTime(new TimeOnly()).ToNSDate(), false);
+			if (picker != null && datePicker.Value != null  && DateOnly.FromDateTime(picker.Date.ToDateTime()) != datePicker.Value.Value)
+				picker.SetDate(datePicker.Value.Value.ToDateTime(new TimeOnly()).ToNSDate(), false);
 
 			string format = datePicker.Format ?? string.Empty;
 
@@ -71,13 +71,13 @@ public static class DatePickerExtensions
 					platformDatePicker.Text = strDate;
 				}
 			}
-			else if (datePicker.Date != null && format.Contains('/', StringComparison.Ordinal))
+			else if (datePicker.Value != null && format.Contains('/', StringComparison.Ordinal))
 			{
-				platformDatePicker.Text = datePicker.Date.Value.ToString(format, CultureInfo.InvariantCulture);
+				platformDatePicker.Text = datePicker.Value.Value.ToString(format, CultureInfo.InvariantCulture);
 			}
-			else if(datePicker.Date != null)
+			else if(datePicker.Value != null)
 			{
-				platformDatePicker.Text = datePicker.Date.Value.ToString(format);
+				platformDatePicker.Text = datePicker.Value.Value.ToString(format);
 			}
 
 			platformDatePicker.UpdateCharacterSpacing(datePicker);
@@ -90,9 +90,9 @@ public static class DatePickerExtensions
 
 		public static void UpdateMinimumDate(this UIDatePicker platformDatePicker, IDatePicker datePicker)
 		{
-			if (platformDatePicker != null && datePicker.MinimumDate != null)
+			if (platformDatePicker != null && datePicker.MinimumValue != null)
 			{
-				platformDatePicker.MinimumDate = datePicker.MinimumDate.Value.ToDateTime(new TimeOnly()).ToNSDate();
+				platformDatePicker.MinimumDate = datePicker.MinimumValue.Value.ToDateTime(new TimeOnly()).ToNSDate();
 			}
 		}
 
@@ -103,9 +103,9 @@ public static class DatePickerExtensions
 
 		public static void UpdateMaximumDate(this UIDatePicker platformDatePicker, IDatePicker datePicker)
 		{
-			if (platformDatePicker != null && datePicker.MaximumDate != null)
+			if (platformDatePicker != null && datePicker.MaximumValue != null)
 			{
-				platformDatePicker.MaximumDate = datePicker.MaximumDate.Value.ToDateTime(new TimeOnly()).ToNSDate();
+				platformDatePicker.MaximumDate = datePicker.MaximumValue.Value.ToDateTime(new TimeOnly()).ToNSDate();
 			}
 		}
 	}

@@ -9,39 +9,39 @@ public static class DatePickerExtensions
         platformDatePicker.SetText(datePicker);
     }
 
-    public static void UpdateDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateValue(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
     {
         platformDatePicker.SetText(datePicker);
     }
 
-    public static void UpdateMinimumDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateMinimumValue(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
     {
-        platformDatePicker.UpdateMinimumDate(datePicker, null);
+        platformDatePicker.UpdateMinimumValue(datePicker, null);
     }
 
-    public static void UpdateMinimumDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker, DatePickerDialog? datePickerDialog)
+    public static void UpdateMinimumValue(this MauiDatePicker platformDatePicker, IDatePicker datePicker, DatePickerDialog? datePickerDialog)
     {
-        if (datePickerDialog != null && datePicker.MinimumDate != null)
+        if (datePickerDialog != null && datePicker.MinimumValue != null)
         {
-            datePickerDialog.DatePicker.MinDate = (long)datePicker.MinimumDate.Value.ToDateTime(new TimeOnly()).ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
+            datePickerDialog.DatePicker.MinDate = (long)datePicker.MinimumValue.Value.ToDateTime(new TimeOnly()).ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
         }
     }
 
-    public static void UpdateMaximumDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateMaximumValue(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
     {
-        platformDatePicker.UpdateMinimumDate(datePicker, null);
+        platformDatePicker.UpdateMinimumValue(datePicker, null);
     }
 
-    public static void UpdateMaximumDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker, DatePickerDialog? datePickerDialog)
+    public static void UpdateMaximumValue(this MauiDatePicker platformDatePicker, IDatePicker datePicker, DatePickerDialog? datePickerDialog)
     {
-        if (datePickerDialog != null && datePicker.MaximumDate != null)
+        if (datePickerDialog != null && datePicker.MaximumValue != null)
         {
-            datePickerDialog.DatePicker.MaxDate = (long)datePicker.MaximumDate.Value.ToDateTime(new TimeOnly()).ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
+            datePickerDialog.DatePicker.MaxDate = (long)datePicker.MaximumValue.Value.ToDateTime(new TimeOnly()).ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
         }
     }
 
     internal static void SetText(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
     {
-        platformDatePicker.Text = datePicker.Date?.ToString(datePicker.Format);
+        platformDatePicker.Text = datePicker.Value?.ToString(datePicker.Format);
     }
 }

@@ -12,15 +12,15 @@ public interface IDatePicker : IView, ITextStyle
     /// <summary>
     /// Gets the displayed date.
     /// </summary>
-    DateOnly? Date { get; set; }
+    DateOnly? Value { get; set; }
 
     /// <summary>
     /// Gets the minimum DateTime selectable.
     /// </summary>
-    DateOnly? MinimumDate { get; }
+    DateOnly? MinimumValue { get; }
 
     /// <summary>
     /// Gets the maximum DateTime selectable.
     /// </summary>
-    DateOnly? MaximumDate { get; }
+    DateOnly? MaximumValue { get; }
 }

@@ -21,22 +21,22 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, CalendarDatePi
 
     public static partial void MapFormat(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        handler.PlatformView.UpdateDate(datePicker);
+        handler.PlatformView.UpdateValue(datePicker);
     }
 
-    public static partial void MapDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        handler.PlatformView.UpdateDate(datePicker);
+        handler.PlatformView.UpdateValue(datePicker);
     }
 
-    public static partial void MapMinimumDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapMinimumValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        handler.PlatformView.UpdateMinimumDate(datePicker);
+        handler.PlatformView.UpdateMinimumValue(datePicker);
     }
 
-    public static partial void MapMaximumDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapMaximumValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        handler.PlatformView.UpdateMaximumDate(datePicker);
+        handler.PlatformView.UpdateMaximumValue(datePicker);
     }
 
     private void DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
@@ -46,10 +46,10 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, CalendarDatePi
 
         if (!args.NewDate.HasValue)
         {
-            VirtualView.Date = null;
+            VirtualView.Value = null;
             return;
         }
 
-        VirtualView.Date = DateOnly.FromDateTime(args.NewDate.Value.Date);
+        VirtualView.Value = DateOnly.FromDateTime(args.NewDate.Value.Date);
     }
 }

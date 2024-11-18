@@ -24,7 +24,7 @@ public partial class DatePickerHandler : Microsoft.Maui.Handlers.ViewHandler<IDa
 
         if (DatePickerDialog is UIDatePicker picker)
         {
-            var date = VirtualView?.Date;
+            var date = VirtualView?.Value;
             if (date != null)
             {
                 picker.Date = date.Value.ToDateTime(new TimeOnly()).ToNSDate();
@@ -47,22 +47,22 @@ public partial class DatePickerHandler : Microsoft.Maui.Handlers.ViewHandler<IDa
         handler.PlatformView?.UpdateFormat(datePicker, picker);
     }
 
-    public static partial void MapDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
         var picker = (handler as DatePickerHandler)?.DatePickerDialog;
-        handler.PlatformView?.UpdateDate(datePicker, picker);
+        handler.PlatformView?.UpdateValue(datePicker, picker);
     }
 
-    public static partial void MapMinimumDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapMinimumValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
         if (handler is DatePickerHandler platformHandler)
-            handler.PlatformView?.UpdateMinimumDate(datePicker, platformHandler.DatePickerDialog);
+            handler.PlatformView?.UpdateMinimumValue(datePicker, platformHandler.DatePickerDialog);
     }
 
-    public static partial void MapMaximumDate(IDatePickerHandler handler, IDatePicker datePicker)
+    public static partial void MapMaximumValue(IDatePickerHandler handler, IDatePicker datePicker)
     {
         if (handler is DatePickerHandler platformHandler)
-            handler.PlatformView?.UpdateMaximumDate(datePicker, platformHandler.DatePickerDialog);
+            handler.PlatformView?.UpdateMaximumValue(datePicker, platformHandler.DatePickerDialog);
     }
 
     static void OnValueChanged(object? sender)
@@ -111,7 +111,7 @@ public partial class DatePickerHandler : Microsoft.Maui.Handlers.ViewHandler<IDa
         if (VirtualView == null || DatePickerDialog == null)
             return;
 
-        VirtualView.Date = DateOnly.FromDateTime(DatePickerDialog.Date.ToDateTime());
+        VirtualView.Value = DateOnly.FromDateTime(DatePickerDialog.Date.ToDateTime());
     }
 
     class DatePickerDelegate : NPicker.Platforms.iOS.MauiDatePickerDelegate
