@@ -80,7 +80,7 @@ public partial class DatePickerHandler : IDatePickerHandler
     public static partial void MapMaximumValue(IDatePickerHandler handler, IDatePicker datePicker);
 
     /// <summary>
-    /// Maps the abstract <see cref="DatePicker.Placeholder"/> property to the platform-specific implementations.
+    /// Maps the abstract <see cref="IPlaceholder.Placeholder"/> property to the platform-specific implementations.
     /// </summary>
     /// <param name="handler">The associated handler.</param>
     /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>

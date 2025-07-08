@@ -2,7 +2,7 @@
 
 public partial class DatePicker : Entry, IDatePicker
 {
-    public event EventHandler<ValueChangedEventArguments> ValueSelected;
+    public event EventHandler<ValueChangedEventArguments>? ValueSelected;
 
     /// <summary>Bindable property for <see cref="Format"/>.</summary>
     public static readonly BindableProperty FormatProperty = BindableProperty.Create(nameof(Format), typeof(string), typeof(DatePicker), "d");
@@ -91,7 +91,7 @@ public partial class DatePicker : Entry, IDatePicker
     static void ValuePropertyChanged(BindableObject bindable, object oldValue, object newValue)
     {
         var datePicker = (DatePicker)bindable;
-        EventHandler<ValueChangedEventArguments> selected = datePicker.ValueSelected;
+        EventHandler<ValueChangedEventArguments>? selected = datePicker.ValueSelected;
 
         if (selected != null)
             selected(datePicker, new ValueChangedEventArguments((DateOnly?)oldValue, (DateOnly?)newValue));
@@ -99,28 +99,28 @@ public partial class DatePicker : Entry, IDatePicker
 
     static bool ValidateMaximumValue(BindableObject bindable, object value)
     {
-        DateOnly? dateValue = ((DateOnly?)value);
-        DateOnly? minimunDateValue = ((DatePicker)bindable).MinimumValue;
+        DateOnly? dateValue = (DateOnly?)value;
+        DateOnly? minimumDateValue = ((DatePicker)bindable).MinimumValue;
 
-        if (dateValue == null || minimunDateValue == null)
+        if (dateValue == null || minimumDateValue == null)
         {
             return true;
         }
 
-        return dateValue >= minimunDateValue;
+        return dateValue >= minimumDateValue;
     }
 
     static bool ValidateMinimumValue(BindableObject bindable, object value)
     {
-        DateOnly? dateValue = ((DateOnly?)value);
-        DateOnly? maximunDateValue = ((DatePicker)bindable).MaximumValue;
+        DateOnly? dateValue = (DateOnly?)value;
+        DateOnly? maximumDateValue = ((DatePicker)bindable).MaximumValue;
 
-        if (dateValue == null || maximunDateValue == null)
+        if (dateValue == null || maximumDateValue == null)
         {
             return true;
         }
 
-        return dateValue <= maximunDateValue;
+        return dateValue <= maximumDateValue;
     }
 
     DateOnly? IDatePicker.Value
