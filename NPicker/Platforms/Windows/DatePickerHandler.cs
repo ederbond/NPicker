@@ -39,6 +39,18 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, CalendarDatePi
         handler.PlatformView.UpdateMaximumValue(datePicker);
     }
 
+    public static partial void MapPlaceholder(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        if (handler is DatePickerHandler platformHandler && datePicker is IEntry placeholder)
+            handler.PlatformView.PlaceholderText = placeholder.Placeholder;
+    }
+
+    public static partial void MapPlaceholderColor(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        if (handler is DatePickerHandler platformHandler && datePicker is IEntry placeholder)
+            handler.PlatformView.UpdateTextColor(placeholder);
+    }
+
     private void DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
     {
         if (VirtualView == null)

@@ -58,6 +58,16 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, UIDatePicker>
         handler.PlatformView?.UpdateMaximumDate(datePicker);
     }
 
+    public static partial void MapPlaceholder(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        //TODO: Implement it for MacOS
+    }
+
+    public static partial void MapPlaceholderColor(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        //TODO: Implement it for MacOS
+    }
+
     void SetVirtualViewValue()
     {
         if (VirtualView == null)

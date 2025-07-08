@@ -25,6 +25,8 @@ public partial class DatePickerHandler : IDatePickerHandler
         [nameof(IDatePicker.Value)] = MapValue,
         [nameof(IDatePicker.MaximumValue)] = MapMaximumValue,
         [nameof(IDatePicker.MinimumValue)] = MapMinimumValue,
+        [nameof(IDatePicker.Placeholder)] = MapPlaceholder,
+        [nameof(IDatePicker.PlaceholderColor)] = MapPlaceholderColor,
     };
 
     public static CommandMapper<IPicker, IDatePickerHandler> CommandMapper = new(ViewCommandMapper)
@@ -76,4 +78,18 @@ public partial class DatePickerHandler : IDatePickerHandler
     /// <param name="handler">The associated handler.</param>
     /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
     public static partial void MapMaximumValue(IDatePickerHandler handler, IDatePicker datePicker);
+
+    /// <summary>
+    /// Maps the abstract <see cref="DatePicker.Placeholder"/> property to the platform-specific implementations.
+    /// </summary>
+    /// <param name="handler">The associated handler.</param>
+    /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
+    public static partial void MapPlaceholder(IDatePickerHandler handler, IDatePicker datePicker);
+
+    /// <summary>
+    /// Maps the abstract <see cref="InputView.PlaceholderColor"/> property to the platform-specific implementations.
+    /// </summary>
+    /// <param name="handler">The associated handler.</param>
+    /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
+    public static partial void MapPlaceholderColor(IDatePickerHandler handler, IDatePicker datePicker);
 }

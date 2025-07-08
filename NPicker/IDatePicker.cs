@@ -2,7 +2,7 @@
 
 namespace NPicker;
 
-public interface IDatePicker : IView, ITextStyle
+public interface IDatePicker : IView, ITextStyle, IPlaceholder
 {
     /// <summary>
     /// Gets the format of the date to display to the user. 

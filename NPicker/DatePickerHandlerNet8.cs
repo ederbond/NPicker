@@ -10,5 +10,7 @@ namespace NPicker;
         public static partial void MapValue(IDatePickerHandler handler, IDatePicker datePicker) { }
         public static partial void MapMinimumValue(IDatePickerHandler handler, IDatePicker datePicker) { }
         public static partial void MapMaximumValue(IDatePickerHandler handler, IDatePicker datePicker) { }
+        public static partial void MapPlaceholder(IDatePickerHandler handler, IDatePicker datePicker) { }
+        public static partial void MapPlaceholderColor(IDatePickerHandler handler, IDatePicker datePicker) { }
     }
 #endif

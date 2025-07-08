@@ -65,6 +65,18 @@ public partial class DatePickerHandler : Microsoft.Maui.Handlers.ViewHandler<IDa
             handler.PlatformView?.UpdateMaximumValue(datePicker, platformHandler.DatePickerDialog);
     }
 
+    public static partial void MapPlaceholder(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        if (handler is DatePickerHandler platformHandler && datePicker is IEntry placeholder)
+            handler.PlatformView?.UpdatePlaceholder(placeholder);
+    }
+
+    public static partial void MapPlaceholderColor(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        if (handler is DatePickerHandler platformHandler && datePicker is IEntry placeholder)
+            handler.PlatformView?.UpdatePlaceholder(placeholder, datePicker.PlaceholderColor);
+    }
+
     static void OnValueChanged(object? sender)
     {
         if (sender is DatePickerHandler datePickerHandler)

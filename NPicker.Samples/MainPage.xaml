@@ -20,9 +20,11 @@
 
             <NPicker:DatePicker x:Name="_picker"
                                 HorizontalOptions="Center"
-                                Value="{Binding SelectedDate.Value}"
                                 Format="MM/dd/yyyy"
-                                MinimumWidthRequest="110" />
+                                MinimumWidthRequest="110"
+                                Placeholder="Pick a Date"
+                                PlaceholderColor="{StaticResource Primary}"
+                                Value="{Binding SelectedDate.Value}" />
 
         </VerticalStackLayout>
     </ScrollView>
