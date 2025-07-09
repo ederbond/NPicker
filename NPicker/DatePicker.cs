@@ -1,6 +1,6 @@
 ﻿namespace NPicker;
 
-public partial class DatePicker : Entry, IDatePicker
+public class DatePicker : Entry, IDatePicker
 {
     public event EventHandler<ValueChangedEventArguments>? ValueSelected;
 

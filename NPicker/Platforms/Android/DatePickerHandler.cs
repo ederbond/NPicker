@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System.Runtime.CompilerServices;
+using Android.App;
 using Microsoft.Maui.Handlers;
 using NPicker.Platforms.Android;
 using Microsoft.Maui.Platform;
@@ -112,14 +113,33 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 
     public static partial void MapPlaceholder(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        if (handler is DatePickerHandler platformHandler && datePicker is IEntry placeholder)
-            handler.PlatformView?.UpdatePlaceholder(placeholder);
+        if (datePicker is IEntry entry)
+            handler.PlatformView?.UpdatePlaceholder(entry);
     }
 
     public static partial void MapPlaceholderColor(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        if (handler is DatePickerHandler platformHandler && datePicker is IEntry placeholder)
-            handler.PlatformView?.UpdatePlaceholderColor(placeholder);
+        if (datePicker is IEntry entry)
+            handler.PlatformView?.UpdatePlaceholderColor(entry);
+    }
+
+    public static partial void MapFontFamily(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        MapFont(handler, datePicker);
+    }
+
+    public static partial void MapFontSize(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        MapFont(handler, datePicker);
+    }
+
+    public static void MapFont(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        if (datePicker is IEntry entry)
+        {
+            var fontManager = handler.GetRequiredService<IFontManager>();
+            handler.PlatformView?.UpdateFont(entry, fontManager);
+        }
     }
 
     void ShowPickerDialog()

@@ -20,6 +20,8 @@
 
             <NPicker:DatePicker x:Name="_picker"
                                 HorizontalOptions="Center"
+                                FontFamily="Roboto"
+                                FontSize="40"
                                 Format="MM/dd/yyyy"
                                 MinimumWidthRequest="110"
                                 Placeholder="Pick a Date"

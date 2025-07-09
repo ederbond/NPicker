@@ -27,6 +27,8 @@ public partial class DatePickerHandler : IDatePickerHandler
         [nameof(IDatePicker.MinimumValue)] = MapMinimumValue,
         [nameof(IDatePicker.Placeholder)] = MapPlaceholder,
         [nameof(IDatePicker.PlaceholderColor)] = MapPlaceholderColor,
+        [nameof(IDatePicker.FontSize)] = MapFontSize,
+        [nameof(IDatePicker.FontFamily)] = MapFontFamily,
     };
 
     public static CommandMapper<IPicker, IDatePickerHandler> CommandMapper = new(ViewCommandMapper)
@@ -92,4 +94,18 @@ public partial class DatePickerHandler : IDatePickerHandler
     /// <param name="handler">The associated handler.</param>
     /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
     public static partial void MapPlaceholderColor(IDatePickerHandler handler, IDatePicker datePicker);
+
+    /// <summary>
+    /// Maps the abstract <see cref="InputView.FontSize"/> property to the platform-specific implementations.
+    /// </summary>
+    /// <param name="handler">The associated handler.</param>
+    /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
+    public static partial void MapFontSize(IDatePickerHandler handler, IDatePicker datePicker);
+
+    /// <summary>
+    /// Maps the abstract <see cref="InputView.FontFamily"/> property to the platform-specific implementations.
+    /// </summary>
+    /// <param name="handler">The associated handler.</param>
+    /// <param name="datePicker">The associated <see cref="IDatePicker"/> instance.</param>
+    public static partial void MapFontFamily(IDatePickerHandler handler, IDatePicker datePicker);
 }

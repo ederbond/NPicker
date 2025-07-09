@@ -77,6 +77,25 @@ public partial class DatePickerHandler : Microsoft.Maui.Handlers.ViewHandler<IDa
             handler.PlatformView?.UpdatePlaceholder(placeholder, datePicker.PlaceholderColor);
     }
 
+    public static partial void MapFontFamily(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        MapFont(handler, datePicker);
+    }
+
+    public static partial void MapFontSize(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        MapFont(handler, datePicker);
+    }
+
+    public static void MapFont(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        if (datePicker is IEntry entry)
+        {
+            var fontManager = handler.GetRequiredService<IFontManager>();
+            handler.PlatformView?.UpdateFont(entry, fontManager);
+        }
+    }
+
     static void OnValueChanged(object? sender)
     {
         if (sender is DatePickerHandler datePickerHandler)

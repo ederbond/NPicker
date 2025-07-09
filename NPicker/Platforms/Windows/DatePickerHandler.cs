@@ -51,6 +51,25 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, CalendarDatePi
             handler.PlatformView.UpdateTextColor(placeholder);
     }
 
+    public static partial void MapFontFamily(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        MapFont(handler, datePicker);
+    }
+
+    public static partial void MapFontSize(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        MapFont(handler, datePicker);
+    }
+
+    public static void MapFont(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        if (datePicker is IEntry entry)
+        {
+            var fontManager = handler.GetRequiredService<IFontManager>();
+            handler.PlatformView?.UpdateFont(entry, fontManager);
+        }
+    }
+
     private void DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
     {
         if (VirtualView == null)

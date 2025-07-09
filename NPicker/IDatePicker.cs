@@ -1,8 +1,8 @@
-﻿using Microsoft.Maui;
+﻿using Microsoft.Maui.Controls.Internals;
 
 namespace NPicker;
 
-public interface IDatePicker : IView, ITextStyle, IPlaceholder
+public interface IDatePicker : IView, ITextStyle, IPlaceholder, IFontElement
 {
     /// <summary>
     /// Gets the format of the date to display to the user. 

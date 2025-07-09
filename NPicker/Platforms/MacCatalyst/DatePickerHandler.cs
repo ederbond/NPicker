@@ -3,7 +3,6 @@ using Microsoft.Maui.Handlers;
 using Microsoft.Maui.Platform;
 using UIKit;
 using NPicker.Platforms.MacCatalyst;
-using RectangleF = CoreGraphics.CGRect;
 
 namespace NPicker;
 
@@ -64,6 +63,16 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, UIDatePicker>
     }
 
     public static partial void MapPlaceholderColor(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        //TODO: Implement it for MacOS
+    }
+
+    public static partial void MapFontFamily(IDatePickerHandler handler, IDatePicker datePicker)
+    {
+        //TODO: Implement it for MacOS
+    }
+
+    public static partial void MapFontSize(IDatePickerHandler handler, IDatePicker datePicker)
     {
         //TODO: Implement it for MacOS
     }

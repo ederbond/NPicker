@@ -13,8 +13,9 @@ namespace NPicker.Samples
                 .UseNPicker()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular")
+                         .AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold")
+                         .AddFont("Roboto-Regular.ttf", "Roboto");
                 });
 
             builder.Services.AddTransient<MainPage>();
